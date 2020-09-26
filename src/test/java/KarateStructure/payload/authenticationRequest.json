@@ -1,0 +1,44 @@
+{
+  "Document": {
+    "Header": {
+      "MessageFunction": "AUTQ",
+      "ExchangeIdentification": "66000001",
+      "CreationDateTime": "2020-04-01T07:22:54.133Z",
+      "InitiatingParty": {
+        "Identification": "123e4567-e89b-12d3-a456-426614174001",
+        "Type": "OPOI"
+      },
+      "RecipientParty": {
+        "Identification": "PaymentGatewayId",
+        "Type": "OPOI"
+      }
+    },
+    "CheckOutSessionRequest":{
+      "POI": {
+        "Identification": "POID0001",
+        "Type": "OPOI"
+      },
+      "Transaction":{
+        "TransactionCapture": true,
+        "TransactionType": "CRDP",
+        "TransactionDetails": {
+          "Currency": "EUR",
+          "TotalAmount": "43.14",
+          "AmountQualifier": "ACTL"
+        }
+      },
+      "SaleContext":{
+        "SaleIdentification": "s-123"
+      },
+      "ReturnUrl":{
+        "ReturnAuth": "auth",
+        "ReturnDecline": "",
+        "ReturnCancellation": ""
+      },
+      "IntegrationOption":{
+        "mode": "CARD",
+        "FrameAncestor": ""
+      }
+    }
+  }
+}

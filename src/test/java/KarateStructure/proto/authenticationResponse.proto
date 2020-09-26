@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "com.rms.gateway.authentication.message";
+
+
+message AuthenticationResponse{
+
+  message MESSAGESTRUCT {
+    string Code = 1;
+    string Description = 2;
+  }
+  repeated MESSAGESTRUCT Messages = 1;
+
+  message PAYLOAD{
+
+    string AuthenticationStatus=1;
+    string AdditionalInformation=2;
+    string SessionId=3;
+  }
+  PAYLOAD Payload = 2;
+}

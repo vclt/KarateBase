@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+option java_package = "com.rms.gateway.authentication.message";
+
+
+message AuthenticationRequest{
+
+  DOCUMENT Document = 1;
+
+  message DOCUMENT{
+
+    message HEADER {
+      string MessageFunction = 1;
+      string ExchangeIdentification = 2;
+      string CreationDateTime = 3;
+
+      message INITIATINGPARTY {
+        string Identification = 1;
+        string Type = 2;
+      }
+
+      INITIATINGPARTY InitiatingParty = 4;
+
+      message RECIPIENTPARTY {
+        string Identification = 1;
+        string Type = 2;
+      }
+
+      RECIPIENTPARTY RecipientParty = 5;
+    }
+
+    HEADER Header = 1;
+
+    message CHECKOUTSESSIONREQUEST {
+
+      message POIMSG {
+        string Identification = 1;
+        string Type = 2;
+      }
+
+      POIMSG POI = 1;
+
+      message TRANSACTION {
+        bool TransactionCapture = 1;
+        string TransactionType = 2;
+
+        message TRANSACTIONDETAILS {
+          string Currency = 1;
+          string TotalAmount = 2;
+          string AmountQualifier = 3;
+        }
+
+        TRANSACTIONDETAILS TransactionDetails = 3;
+      }
+
+      TRANSACTION Transaction = 2;
+
+      message SALECONTEXT {
+        string SaleIdentification = 1;
+      }
+
+      SALECONTEXT SaleContext = 3;
+
+      message RETURNURL {
+        string ReturnAuth = 1;
+        string ReturnDecline = 2;
+        string ReturnCancellation = 3;
+      }
+
+      RETURNURL ReturnUrl = 4;
+
+      message INTEGRATIONOPTION {
+        string mode = 1;
+        string FrameAncestor = 2;
+      }
+
+      INTEGRATIONOPTION IntegrationOption = 5;
+    }
+
+    CHECKOUTSESSIONREQUEST CheckOutSessionRequest = 2;
+  }
+
+}
